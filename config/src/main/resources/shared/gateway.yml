@@ -1,0 +1,15 @@
+server:
+  port: 80
+logging:
+  level: debug
+spring:
+  application:
+    name: Gateway
+zuul:
+  routes:
+    auth:
+      path: /auth/**
+      serviceId: auth
+    service:
+      path: /service/**
+      url: http://localhost:9090

@@ -1,0 +1,18 @@
+version: '2'
+services:
+
+  config:
+    build: config
+    ports:
+    - 8888:8888
+
+  registry:
+    build: registry
+
+  gateway:
+    build: gateway
+
+  auth:
+    build: auth
+    ports:
+    - 5000:5000

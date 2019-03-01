@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: auth
+  cloud:
+    config:
+      password: root
+      username: user
+      uri: http://localhost:8888/auth
+      fail-fast: true

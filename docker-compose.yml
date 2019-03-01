@@ -1,0 +1,48 @@
+version: '2'
+services:
+
+  config:
+    image: imrenagi/mysmartwallet-config
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  registry:
+    image: imrenagi/mysmartwallet-registry
+    restart: always
+    ports:
+    - 8761:8761
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  gateway:
+    image: imrenagi/mysmartwallet-gateway
+    restart: always
+    ports:
+    - 80:4000
+    logging:
+      options:
+        max-size: "10M"
+        max-file: "10"
+
+  auth:
+    image: imrenagi/mysmartwallet-auth
+    restart: always
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
+
+  auth-db:
+    image: mysql
+    container_name: mysmartwallet-auth-v1-db
+    ports:
+    - "3307:3306"
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "10"
