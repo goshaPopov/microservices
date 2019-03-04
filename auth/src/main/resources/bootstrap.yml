@@ -5,5 +5,7 @@ spring:
     config:
       password: root
       username: user
-      uri: http://localhost:8888/auth
-      fail-fast: true
+      uri: http://config:8888/
+      failFast: true
+      retry:
+        max-attempts: 30

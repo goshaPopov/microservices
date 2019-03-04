@@ -5,8 +5,10 @@ spring:
     config:
       password: root
       username: user
-      uri: http://localhost:8888/registry
+      uri: http://config:8888/
       fail-fast: true
+      retry:
+        max-attempts: 30
 
 eureka:
   instance:
@@ -17,3 +19,5 @@ eureka:
     server:
       waitTimeInMsWhenSyncEmpty: 0
       enableSelfPreservation: false
+    serviceUrl:
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/

@@ -1,48 +1,45 @@
 version: '2'
 services:
-
   config:
-    image: imrenagi/mysmartwallet-config
+    image: goges/test/config
     restart: always
+    networks:
+      - local-network
     logging:
       options:
         max-size: "10m"
         max-file: "10"
-
   registry:
-    image: imrenagi/mysmartwallet-registry
+    image: goges/test/registry
     restart: always
     ports:
     - 8761:8761
+    networks:
+      - local-network
     logging:
       options:
         max-size: "10m"
         max-file: "10"
-
   gateway:
-    image: imrenagi/mysmartwallet-gateway
+    image: goges/test/gateway
     restart: always
     ports:
     - 80:4000
+    networks:
+      - local-network
     logging:
       options:
         max-size: "10M"
         max-file: "10"
-
   auth:
-    image: imrenagi/mysmartwallet-auth
+    image: goges/test/auth
     restart: always
+    networks:
+       - local-network
     logging:
       options:
         max-size: "10m"
         max-file: "10"
-
-  auth-db:
-    image: mysql
-    container_name: mysmartwallet-auth-v1-db
-    ports:
-    - "3307:3306"
-    logging:
-      options:
-        max-size: "10m"
-        max-file: "10"
+networks:
+  local-network:
+    driver: bridge

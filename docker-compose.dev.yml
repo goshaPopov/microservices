@@ -5,14 +5,22 @@ services:
     build: config
     ports:
     - 8888:8888
-
+    networks:
+    - local-network
   registry:
     build: registry
-
+    networks:
+    - local-network
   gateway:
     build: gateway
-
+    networks:
+    - local-network
   auth:
     build: auth
     ports:
     - 5000:5000
+    networks:
+    - local-network
+networks:
+  local-network:
+    driver: bridge

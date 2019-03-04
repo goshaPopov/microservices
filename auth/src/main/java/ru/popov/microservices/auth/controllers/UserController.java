@@ -1,12 +1,8 @@
 package ru.popov.microservices.auth.controllers;
 
-import io.grpc.ManagedChannel;
-import io.grpc.ManagedChannelBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +13,6 @@ import ru.popov.microservices.auth.service.UserService;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.List;
 
 /**
  * Created by imrenagi on 5/9/17.
